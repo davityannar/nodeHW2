@@ -29,17 +29,17 @@ const toJson = (file) => {
         this.push(jsonData)
     })
 };
-
+/////////////////////////////////////////////////////////////
 function reverse() {
     process.stdin.setEncoding('utf8');
 
-    let toUpperCase = through(function (chunk, enc, callback) {
+    let toReverse = through(function (chunk, enc, callback) {
         this.push(chunk.toString().split("").reverse().join("") + '\n');
         callback();
     });
-    process.stdin.pipe(toUpperCase).pipe(process.stdout)
+    process.stdin.pipe(toReverse).pipe(process.stdout)
 }
-
+//////////////////////////////////////////////////////////////////
 function transform() {
     process.stdin.setEncoding('utf8');
 
@@ -49,20 +49,20 @@ function transform() {
     });
     process.stdin.pipe(toUpperCase).pipe(process.stdout)
 }
-
+/////////////////////////////////////////////////////////////
 function outputFile(file) {
     exists(file);
     let reader = fs.createReadStream(file);
     reader.pipe(process.stdout);
 }
-
+////////////////////////////////////////////////////////////
 function convertFromFile(file) {
     exists(file);
     let reader = fs.createReadStream(file);
 
     reader.pipe(toJson(file)).pipe(process.stdout);
 }
-
+/////////////////////////////////////////////////////////////
 function convertToFile(file) {
     exists(file);
     let reader = fs.createReadStream(file);
@@ -71,13 +71,13 @@ function convertToFile(file) {
     reader.pipe(toJson(file)).pipe(writer);
 }
 
-// function cssBundler(path) {
-//     let destination = path + '/bundle.css';
+function cssBundler(path) {
+    let destination = path + '/bundle.css';
 
-//     return fsPromise.readdirAsync(path)
-//         .map(file => fsPromise.readFileAsync(p.join(path, file), 'utf8'))
-//         .then(contents => fsPromise.writeFileAsync(destination, contents.join('\n')))
-// }
+    return fsPromise.readdirAsync(path)
+        .map(file => fsPromise.readFileAsync(p.join(path, file), 'utf8'))
+        .then(contents => fsPromise.writeFileAsync(destination, contents.join('\n')))
+}
 
 switch (args.action) {
     case 'reverse':
