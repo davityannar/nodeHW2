@@ -6,11 +6,11 @@ class User {
 }
 
 const users = [
-	{name: 'Dima', age: 30},
-	{name: 'Vasia', age: 31},
-	{name: 'Petia', age: 32},
-	{name: 'Sasha', age: 33},
-	{name: 'Masha', age: 34},
+	{name: 'Nar', age: 21},
+	{name: 'Narr', age: 25},
+	{name: 'Das', age: 27},
+	{name: 'Dass', age: 30},
+	{name: 'MasDavha', age: 34},
 ];
 
 module.exports.User = User;
