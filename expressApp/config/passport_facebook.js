@@ -29,7 +29,7 @@ passport.use('facebookStrategy', new FacebookStrategy({
                 id: profile.id,
                 email: 'nodeJS@task.by',
                 username: profile.displayName,
-                password: '12345',
+                password: 'narek',
                 token: token
             };
             credential.data.users.push(newUser);

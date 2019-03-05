@@ -12,15 +12,6 @@ router.get('/', passport.authenticate('googleStrategy', {
 router.get('/callback', passport.authenticate('googleStrategy', {
     successRedirect: '/api/products',
     failureRedirect: '/'
-})/*, (req, res) => {
-    if (req.isAuthenticated()) {
-        res.send('Вы прошли авторизацию и оказались на закрытой странице');
-    } else {
-        console.log(req.isAuthenticated());
-        res
-            .status(403)
-            .send('Доступ запрещен');
-    }
-}*/);
+}));
 
 module.exports = router;

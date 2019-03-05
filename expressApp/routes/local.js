@@ -9,25 +9,25 @@ router.post('/', (req, res, next) => {
 			return next(err);
 		}
 		if (!user) {
-			return res.json({status: 'Укажите правильный логин и пароль!'})
+			return res.json({status: 'Enter the correct username and password!'})
 		}
 		req.login(user, err => {
 				if (err) {
 					return next(err);
 				}
-				return res.json({status: 'Все ок, Добро пожаловать'});
+				return res.json({status: 'Welcome'});
 				//return res.redirect('/api/products');
 			});
 	})(req, res, next);
 });
 router.get('/secret', (req, res) => {
 	if (req.isAuthenticated()) {
-		//res.send('Вы прошли авторизацию и оказались на закрытой странице');
+		//res.send('You are logged ');
 		res.redirect('/api/products');
 	} else {
 		res
 			.status(403)
-			.send('Доступ запрещен');
+			.send('Wrong Access');
 	}
 });
 

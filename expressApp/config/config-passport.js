@@ -12,8 +12,8 @@
 //         user: [
 //             {   id: '101062124387309',
 //                 email: 'nodeJS@task.by',
-//                 username: 'Dmitry',
-//                 password: '12345',
+//                 username: 'Narek',
+//                 password: 'narek',
 //                 token: ''
 //             }
 //         ],
